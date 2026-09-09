@@ -1,0 +1,21 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# Logs & Notebook checkpoints
+logs/
+*.log
+.ipynb_checkpoints/
+
+# IDE / Editor Files
+.idea/
+.vscode/
+*.iml
