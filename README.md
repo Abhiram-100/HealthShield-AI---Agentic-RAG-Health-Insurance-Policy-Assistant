@@ -189,3 +189,36 @@ python main.py
 ```
 
 ---
+
+## 📊 Evaluation Framework
+
+HealthShield AI includes a built-in evaluation suite powered by **LangSmith** and **OpenEvals** to measure answer quality across **correctness** and **groundedness**.
+
+### Test Dataset
+
+The framework uses a curated dataset (`health-policy-qna`) of **25 expert-verified Q&A pairs** covering:
+- Policy definitions (illness, dependent eligibility, moratorium period)
+- Coverage details (pre/post-hospitalization, domiciliary, organ donor)
+- Benefit limits (preventive check-up, Plus Benefit, Daily Cash)
+- Deductibles & waivers (Global Health, Aggregate Deductible)
+- E-Opinion critical illness coverage
+- Waiting periods (PED, listed conditions, refractive error, obesity)
+- Claims process (intimation, submission deadlines, sum insured utilization)
+- Plan-specific caps (Optima Lite room rent, ICU, hospitalization windows)
+
+### Evaluation Metrics
+
+| Metric | Description | Judge Model |
+|--------|-------------|-------------|
+| **Correctness** | Does the answer match the ground-truth reference? | `gemini-3.7-flash` |
+| **Groundedness** | Is the answer fully supported by retrieved context (no hallucination)? | `gemini-3.7-flash` |
+
+### Run Evaluations
+
+**Prerequisites:**
+- LangSmith API key configured in `.env` (`LANGSMITH_API_KEY`)
+- All dependencies installed (`openevals` added to `requirements.txt`)
+
+**CLI:**
+```bash
+python evaluation.py
