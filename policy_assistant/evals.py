@@ -161,7 +161,7 @@ def run_evals():
         return groundedness_judge(outputs={"answer": outputs["answer"]},
                                   context=outputs["context"])
 
-    logger.info("Running evaluation against dataset '%s'", DATASET_NAME)
+    logger.info("Running evaluation on dataset '%s'", DATASET_NAME)
     return client.evaluate(
         target,  # positional
         data=dataset.name,
